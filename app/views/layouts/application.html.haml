@@ -1,0 +1,29 @@
+!!! Strict
+%html{ "xml:lang" => "en", :lang => "en", :xmlns => "http://www.w3.org/1999/xhtml" }
+  %head
+    %title== Test-project #{@page_title}
+    %meta{'http-equiv' => "Content-Type", :content => "text/html; charset=utf-8"}
+    %link{ :href => "/favicon.ico", :rel => "shortcut icon" }
+
+    = stylesheet_link_tag :all
+
+    = javascript_include_tag 'jquery.min.js', 'rails.js', 'application.js', :cache => 'all_1'
+
+    = csrf_meta_tag
+
+    = yield :local_javascript
+
+    = yield :head
+  %body
+    #banner
+      =image_tag 'your-logo.png'
+      .the-title
+        %h1
+          %p Your application
+      #navigation
+    #container
+      #sidebar
+      #contents
+        =yield
+    #footer
+      == &copy; 2010 your company
